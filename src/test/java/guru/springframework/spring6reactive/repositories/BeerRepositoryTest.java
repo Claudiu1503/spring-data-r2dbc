@@ -11,9 +11,10 @@ import org.springframework.context.annotation.Import;
 
 import java.math.BigDecimal;
 
+
 @DataR2dbcTest
 @Import(DatabaseConfig.class)
-class BeerRepositoryTest {
+public class BeerRepositoryTest {
 
     @Autowired
     BeerRepository beerRepository;
@@ -25,7 +26,6 @@ class BeerRepositoryTest {
         System.out.println(objectMapper.writeValueAsString(getTestBeer()));
     }
 
-
     @Test
     void saveNewBeer() {
         beerRepository.save(getTestBeer())
@@ -34,7 +34,7 @@ class BeerRepositoryTest {
                 });
     }
 
-    Beer getTestBeer() {
+    public static Beer getTestBeer() {
         return Beer.builder()
                 .beerName("Space Dust")
                 .beerStyle("IPA")
